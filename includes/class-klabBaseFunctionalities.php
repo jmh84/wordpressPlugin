@@ -27,7 +27,7 @@
  * @subpackage Plugin_Name/includes
  * @author     Your Name <email@example.com>
  */
-class Plugin_Name {
+class KlabBaseFunctionalities {
 
 	/**
 	 * The loader that's responsible for maintaining and registering all hooks that power
@@ -35,7 +35,7 @@ class Plugin_Name {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      Plugin_Name_Loader    $loader    Maintains and registers all hooks for the plugin.
+	 * @var      KlabBaseFunctionalities_Loader    $loader    Maintains and registers all hooks for the plugin.
 	 */
 	protected $loader;
 
@@ -68,7 +68,7 @@ class Plugin_Name {
 	 */
 	public function __construct() {
 
-		$this->plugin_name = 'plugin-name';
+		$this->plugin_name = 'klabBaseFunctionalities';
 		$this->version = '1.0.0';
 
 		$this->load_dependencies();
@@ -100,26 +100,31 @@ class Plugin_Name {
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-plugin-name-loader.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-klabBaseFunctionalities-loader.php';
 
 		/**
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-plugin-name-i18n.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-klabBaseFunctionalities-i18n.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-plugin-name-admin.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-klabBaseFunctionalities-admin.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-plugin-name-public.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-klabBaseFunctionalities-public.php';
 
-		$this->loader = new Plugin_Name_Loader();
+        /**
+         * Helper class for creating custom post types.
+         */
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-klabBaseFunctionalities_CustomPostTypeConstructor.php';
+
+		$this->loader = new KlabBaseFunctionalities_Loader();
 
 	}
 
@@ -134,7 +139,7 @@ class Plugin_Name {
 	 */
 	private function set_locale() {
 
-		$plugin_i18n = new Plugin_Name_i18n();
+		$plugin_i18n = new KlabBaseFunctionalities_i18n();
 
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
@@ -149,7 +154,7 @@ class Plugin_Name {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new Plugin_Name_Admin( $this->get_plugin_name(), $this->get_version() );
+		$plugin_admin = new KlabBaseFunctionalities_Admin( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
@@ -165,7 +170,7 @@ class Plugin_Name {
 	 */
 	private function define_public_hooks() {
 
-		$plugin_public = new Plugin_Name_Public( $this->get_plugin_name(), $this->get_version() );
+		$plugin_public = new KlabBaseFunctionalities_Public( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
@@ -178,6 +183,25 @@ class Plugin_Name {
 	 * @since    1.0.0
 	 */
 	public function run() {
+	    $customPostTypeConstructor = new KlabBaseFunctionalities_CustomPostTypeConstructor();
+        $labels = $labels = array(
+            'name'               => _x( 'News', 'post type general name', 'klab' ),
+            'singular_name'      => _x( 'News', 'post type singular name', 'klab' ),
+            'menu_name'          => _x( 'News', 'admin menu', 'klab' ),
+            'name_admin_bar'     => _x( 'News', 'add new on admin bar', 'klab' ),
+            'add_new'            => _x( 'Add New', 'book', 'klab' ),
+            'add_new_item'       => __( 'Add New News', 'klab' ),
+            'new_item'           => __( 'New News', 'klab' ),
+            'edit_item'          => __( 'Edit News', 'klab' ),
+            'view_item'          => __( 'View News', 'klab' ),
+            'all_items'          => __( 'All News', 'klab' ),
+            'search_items'       => __( 'Search News', 'klab' ),
+            'parent_item_colon'  => __( 'Parent News:', 'klab' ),
+            'not_found'          => __( 'No news found.', 'klab' ),
+            'not_found_in_trash' => __( 'No news found in Trash.', 'klab' )
+        );
+	    $customPostTypeConstructor->initiateUsingDefaultArgs('klab_news', 'klab_news', $labels);
+
 		$this->loader->run();
 	}
 
@@ -188,7 +212,7 @@ class Plugin_Name {
 	 * @since     1.0.0
 	 * @return    string    The name of the plugin.
 	 */
-	public function get_plugin_name() {
+	public function get_klabBaseFunctionalities() {
 		return $this->plugin_name;
 	}
 
