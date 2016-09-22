@@ -45,7 +45,7 @@ function activate_klabBaseFunctionalities() {
  */
 function deactivate_klabBaseFunctionalities() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-klabBaseFunctionalities-deactivator.php';
-	Plugin_Name_Deactivator::deactivate();
+	KlabBaseFunctionalities_Deactivator::deactivate();
 }
 
 register_activation_hook( __FILE__, 'activate_klabBaseFunctionalities' );

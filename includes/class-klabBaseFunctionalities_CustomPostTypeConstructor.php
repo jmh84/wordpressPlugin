@@ -36,7 +36,7 @@ class KlabBaseFunctionalities_CustomPostTypeConstructor
      * @param string $slug: slug used in rewrite
      * @param $labels
      */
-    public function __construct($post_type_name, $args, $useDefaults = true)
+    public function init($post_type_name, $args, $useDefaults = true)
     {
         if( post_type_exists($post_type_name)) {
             return;
@@ -44,10 +44,11 @@ class KlabBaseFunctionalities_CustomPostTypeConstructor
         $this->post_type = $post_type_name;
         if ($useDefaults) {
             //note that when using this as args override settings from defaul_args
-            $args = array_replace($this->DEFAULT_ARG, $args);
+            $args = array_replace(self::DEFAULT_ARGS, $args);
         }
+        $this->args = $args;
 
-        add_action( 'init', reqister_post_type($post_type_name, $args));
+        add_action( 'init', array (&$this, 'register_post_type_cb'));
         //$this->add_meta_box();
     }
 
@@ -57,8 +58,13 @@ class KlabBaseFunctionalities_CustomPostTypeConstructor
                                             'rewrite' => array( 'slug' => $slug )
                                             ));
 
-        return new CustomPostTypeBuilder($post_type_name, $args);
+        $this->init($post_type_name, $args);
     }
+
+    public function register_post_type_cb(){
+        register_post_type($this->post_type, $this->args);
+    }
+
 /*
     public function add_meta_box( $title, $inputAttributesByFieldName = array(), $context = 'normal', $priority = 'default' ) {
 
