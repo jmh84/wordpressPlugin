@@ -6,9 +6,9 @@
  * Date: 22.9.2016
  * Time: 22:09
  */
-class KlabBaseFunctionalities_news extends KlabBaseFunctionalities_CustomPostTypeConstructor
+class KlabBaseFunctionalities_news extends klabCustomPostType
 {
-    public function __construct()
+    protected static function createPostType()
     {
         $labels = array(
             'name'               => _x( 'News', 'post type general name', 'klab' ),
@@ -26,8 +26,14 @@ class KlabBaseFunctionalities_news extends KlabBaseFunctionalities_CustomPostTyp
             'not_found'          => __( 'No news found.', 'klab' ),
             'not_found_in_trash' => __( 'No news found in Trash.', 'klab' )
         );
-        parent::__construct('klab_news');
+        $postConstructor = new KlabBaseFunctionalities_CustomPostTypeConstructor('klab_news');
+        $postConstructor->initiateUsingDefaultArgs('klab_news', $labels);
+    }
 
-        parent::initiateUsingDefaultArgs('klab_news', 'klab_news', $labels);
+    protected static function setTaxonomies() {
+        return;
+    }
+    protected static function createMetaboxes() {
+        return;
     }
 }

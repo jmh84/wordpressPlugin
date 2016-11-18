@@ -122,9 +122,22 @@ class KlabBaseFunctionalities {
         /**
          * Classes for creating custom post types.
          */
+        /**constructs post types*/
         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/customPostTypes/class-klabBaseFunctionalities_CustomPostTypeConstructor.php';
+        /**  */
 
+        /** helper classes for creating metaboxes */
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/customPostTypes/class-klabBaseFunctionalities_metaBoxConstructor.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/customPostTypes/metaBoxUtil.php';
+
+        /** abstract base class for custom post types */
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/customPostTypes/abstract-klabCustomPostType.php';
+        /**custom post types **/
         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/customPostTypes/class-klabBaseFunctionalities_news.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/customPostTypes/class-klabBaseFunctionalities_article.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/customPostTypes/class-klabBaseFunctionalities_CVEntry.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/customPostTypes/class-klabBaseFunctionalities_labmember.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/customPostTypes/class-klabBaseFunctionalities_researchTopic.php';
 
         $this->loader = new KlabBaseFunctionalities_Loader();
 
@@ -185,7 +198,12 @@ class KlabBaseFunctionalities {
 	 * @since    1.0.0
 	 */
 	public function run() {
-	    $customPostTypeConstructor = new KlabBaseFunctionalities_news();
+
+        KlabBaseFunctionalities_news::initiate();
+        KlabBaseFunctionalities_article::initiate();
+        KlabBaseFunctionalities_CVEntry::initiate();
+        KlabBaseFunctionalities_lab_member::initiate();
+        KlabBaseFunctionalities_research_topic::initiate();
 
 		$this->loader->run();
 	}

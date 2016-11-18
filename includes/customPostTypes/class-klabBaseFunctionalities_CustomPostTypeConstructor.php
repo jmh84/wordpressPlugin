@@ -25,12 +25,16 @@ class KlabBaseFunctionalities_CustomPostTypeConstructor
     private $post_type;
     /**@param array $args An array of arguments for register_post_type.*/
     private $args;
+    /**@param input fields to be removed from default*/
+    private $fieldsToBeRemoved;
+    private $postTitleHint;
+
 
     /**
      * CustomPostTypeBuilder constructor.
      * @param string $post_type_name gives the name for post_type
      */
-    protected function __construct($post_type_name)
+    public function __construct($post_type_name)
     {
         if( post_type_exists($post_type_name)) {
             throw new InvalidArgumentException("post type name exists");
@@ -42,7 +46,7 @@ class KlabBaseFunctionalities_CustomPostTypeConstructor
      * @param $args
      * @param bool $useDefaultArgs if true uses default args as base.
      */
-    protected function init($args, $useDefaultArgs = true)
+    public function init($args, $useDefaultArgs = true)
     {
 
         if ($useDefaultArgs) {
@@ -55,17 +59,45 @@ class KlabBaseFunctionalities_CustomPostTypeConstructor
         //$this->add_meta_box();
     }
 
-    protected function initiateUsingDefaultArgs ($slug, $labels)
+    public function initiateUsingDefaultArgs ($slug, $labels)
     {
-        $args = array_replace(array('labels' => $labels,
-                                            'rewrite' => array( 'slug' => $slug )
-                                            ));
+        $args = array('labels' => $labels,
+                      'rewrite' => array( 'slug' => $slug )
+                                            );
         $this->init($args);
     }
 
     public function register_post_type_cb(){
         register_post_type($this->post_type, $this->args);
     }
+
+    /**removes inputs from post edit admin view **/
+    public function removeInputFields($arrayOfFields) {
+        $this->fieldsToBeRemoved = $arrayOfFields;
+        add_action('init', array($this, 'removeSupport'));
+
+
+    }
+
+    public function removeSupport() {
+        foreach ($this->fieldsToBeRemoved as $fieldName) {
+            remove_post_type_support($this->post_type, $fieldName);
+        }
+    }
+
+    public function klab_changeTitleHint ( $postTitleHint) {
+        $this->postTitleHint = $postTitleHint;
+        add_filter( 'enter_title_here', array ($this, 'klab_changeTitleHint_cb' ));
+    }
+
+    public function klab_changeTitleHint_cb(){
+
+        if  ( $this->post_type === get_current_screen()->post_type && $this->postTitleHint != null) {
+            return $this->postTitleHint;
+        }
+
+    }
+
 
 /*
     public function add_meta_box( $title, $inputAttributesByFieldName = array(), $context = 'normal', $priority = 'default' ) {
