@@ -8,6 +8,9 @@
  */
 class KlabBaseFunctionalities_research_topic extends klabCustomPostType
 {
+    const SLUG = 'klab_research_topic';
+    const POST_TITLE_HINT = "Insert title for research topic.";
+
     protected static function createPostType()
     {
         $labels = array(
@@ -26,14 +29,46 @@ class KlabBaseFunctionalities_research_topic extends klabCustomPostType
             'not_found'          => __( 'No research topic found.', 'klab' ),
             'not_found_in_trash' => __( 'No research topic found in Trash.', 'klab' )
         );
-        $postTypeConstructor = new KlabBaseFunctionalities_CustomPostTypeConstructor('klab_research_topic');
-        $postTypeConstructor->initiateUsingDefaultArgs('klab_research_topic', $labels);
+        $supports = array( 'title', 'editor', 'thumbnail');
+        parent::createPostTypeUsingConstructor(static::SLUG, $labels, $supports, static::POST_TITLE_HINT);
+
+        add_action( 'edit_form_after_title', 'KlabBaseFunctionalities_research_topic::klab_researchTopic_topicForEditor_cb' );
+
+
     }
 
     protected static function setTaxonomies() {
         return;
     }
     protected static function createMetaboxes() {
+
+        $detailMetaBoxProps = (object) [
+            'metaboxTitle' => 'Research topic in detail',
+            'metaboxId' => 'details',
+            'nonceName' => 'researchTopicDetailsNonce',
+            'inputFields' =>
+                array(
+                    (object) [
+                        'inputAttributes' => (object) [
+                            'type' => 'textarea',
+                        ],
+                        'inputId' => 'klabMemberDescription',
+                        'inputLabelText' => 'Description'
+                    ]
+                )
+        ];
+
+        parent::createMetaBox($detailMetaBoxProps, STATIC::SLUG);
         return;
     }
+
+    public static function klab_researchTopic_topicForEditor_cb() {
+            global $post;
+            if(!empty($post) && STATIC::SLUG === $post->post_type) {
+
+                echo '<div class="editorTitle>"<h4>Abstract for dummies:</h4></div>';
+            }
+        }
+
+
 }

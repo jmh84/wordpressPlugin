@@ -100,4 +100,8 @@ class KlabBaseFunctionalities_Admin {
 
 	}
 
+	public function remove_top_level_menus () {
+        remove_menu_page( 'edit.php' );                   //Posts
+        remove_menu_page( 'edit-comments.php' );          //Comments
+    }
 }

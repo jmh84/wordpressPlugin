@@ -30,17 +30,15 @@ class KlabBaseFunctionalities_lab_member extends klabCustomPostType
             'not_found_in_trash' => __( 'No lab members found in Trash.', 'klab' )
         );
 
-        $postTypeConstructor = new KlabBaseFunctionalities_CustomPostTypeConstructor(static::SLUG);
-        $postTypeConstructor->initiateUsingDefaultArgs(static::SLUG, $labels);
-        $postTypeConstructor->removeInputFields(array('editor', 'custom-fields'));
-        $postTypeConstructor->klab_changeTitleHint(static::POST_TITLE_HINT);
+        $supports = array( 'title', 'thumbnail');
+        parent::createPostTypeUsingConstructor(static::SLUG, $labels, $supports, static::POST_TITLE_HINT, null);
 
     }
 
     protected static function createMetaboxes() {
         $labMemberMetaBoxProps = (object) [
             'metaboxTitle' => 'Lab member title',
-            'metaboxId' => 'klab_labMemberTitle',
+            'metaboxId' => 'labMemberTitle',
             'nonceName' => 'labMemberTitleNonce',
             'inputFields' =>
                 array(
@@ -56,7 +54,7 @@ class KlabBaseFunctionalities_lab_member extends klabCustomPostType
 
         $labMemberDescMetaBoxProps = (object) [
             'metaboxTitle' => 'Lab member description',
-            'metaboxId' => 'klab_labMemberDescription',
+            'metaboxId' => 'description',
             'nonceName' => 'labMemberDescNonce',
             'inputFields' =>
                 array(
@@ -71,7 +69,6 @@ class KlabBaseFunctionalities_lab_member extends klabCustomPostType
         ];
         parent::createMetaBox($labMemberMetaBoxProps, STATIC::SLUG);
         parent::createMetaBox($labMemberDescMetaBoxProps, STATIC::SLUG);
-
 
     }
 

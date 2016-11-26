@@ -127,17 +127,22 @@ class KlabBaseFunctionalities {
         /**  */
 
         /** helper classes for creating metaboxes */
-        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/customPostTypes/class-klabBaseFunctionalities_metaBoxConstructor.php';
-        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/customPostTypes/metaBoxUtil.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/utils/class-klabBaseFunctionalities_metaBoxConstructor.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/utils/metaBoxUtil.php';
 
         /** abstract base class for custom post types */
         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/customPostTypes/abstract-klabCustomPostType.php';
         /**custom post types **/
         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/customPostTypes/class-klabBaseFunctionalities_news.php';
-        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/customPostTypes/class-klabBaseFunctionalities_article.php';
-        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/customPostTypes/class-klabBaseFunctionalities_CVEntry.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/customPostTypes/class-klabBaseFunctionalities_publication.php';
         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/customPostTypes/class-klabBaseFunctionalities_labmember.php';
         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/customPostTypes/class-klabBaseFunctionalities_researchTopic.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/customPostTypes/class-klabBaseFunctionalities_labPicSlider.php';
+
+
+        /* customizing metaboxes for page templates */
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/utils/PageTemplateUtil.php';
+
 
         $this->loader = new KlabBaseFunctionalities_Loader();
 
@@ -161,7 +166,7 @@ class KlabBaseFunctionalities {
 	}
 
 	/**
-	 * Register all of the hooks related to the admin area functionality
+	 * Register all of the general hooks related to the admin area functionality
 	 * of the plugin.
 	 *
 	 * @since    1.0.0
@@ -173,6 +178,8 @@ class KlabBaseFunctionalities {
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+        //Removing posts and comments from admin menu
+        $this->loader->add_action( 'admin_menu', $plugin_admin, 'remove_top_level_menus' );
 
 	}
 
@@ -199,11 +206,14 @@ class KlabBaseFunctionalities {
 	 */
 	public function run() {
 
+	    //Add custom post types
         KlabBaseFunctionalities_news::initiate();
-        KlabBaseFunctionalities_article::initiate();
-        KlabBaseFunctionalities_CVEntry::initiate();
+        KlabBaseFunctionalities_publication::initiate();
         KlabBaseFunctionalities_lab_member::initiate();
         KlabBaseFunctionalities_research_topic::initiate();
+        KlabBaseFunctionalities_lab_slideshow::initiate();
+
+        PageTemplateUtil::addTemplateMetaboxes();
 
 		$this->loader->run();
 	}

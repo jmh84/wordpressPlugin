@@ -2,18 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="acce5440-dad5-4523-8648-97c1992e5f12" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/includes/customPostTypes/abstract-klabCustomPostType.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_CVEntry.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_article.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_labmember.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_metaBoxConstructor.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_researchTopic.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/includes/customPostTypes/metaBoxUtil.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_labPicSlider.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/includes/utils/PageTemplateUtil.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/includes/utils/class-klabBaseFunctionalities_metaBoxConstructor.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_CVEntry.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_metaBoxConstructor.php" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_article.php" afterPath="$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_publication.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/includes/customPostTypes/metaBoxUtil.php" afterPath="$PROJECT_DIR$/includes/utils/metaBoxUtil.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/class-klabBaseFunctionalities-admin.php" afterPath="$PROJECT_DIR$/admin/class-klabBaseFunctionalities-admin.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/class-klabBaseFunctionalities.php" afterPath="$PROJECT_DIR$/includes/class-klabBaseFunctionalities.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/customPostTypes/abstract-klabCustomPostType.php" afterPath="$PROJECT_DIR$/includes/customPostTypes/abstract-klabCustomPostType.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_CustomPostTypeConstructor.php" afterPath="$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_CustomPostTypeConstructor.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_news.php" afterPath="$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_news.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/class-klabBaseFunctionalities-public.php" afterPath="$PROJECT_DIR$/public/class-klabBaseFunctionalities-public.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_labmember.php" afterPath="$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_labmember.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_researchTopic.php" afterPath="$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_researchTopic.php" />
     </list>
     <ignored path="wordpressPlugin.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,8 +39,8 @@
       <file leaf-file-name="class-klabBaseFunctionalities_CustomPostTypeConstructor.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_CustomPostTypeConstructor.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="404">
-              <caret line="39" column="72" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="72" />
+            <state relative-caret-position="2045">
+              <caret line="126" column="0" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
               <folding>
                 <element signature="e#6#63#0#PHP" expanded="true" />
               </folding>
@@ -46,36 +48,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="class-klabBaseFunctionalities_metaBoxConstructor.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_metaBoxConstructor.php">
+      <file leaf-file-name="class-klabBaseFunctionalities_metaBoxConstructor.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/includes/utils/class-klabBaseFunctionalities_metaBoxConstructor.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="134">
-              <caret line="19" column="79" selection-start-line="19" selection-start-column="79" selection-end-line="19" selection-end-column="79" />
+            <state relative-caret-position="273">
+              <caret line="91" column="34" selection-start-line="91" selection-start-column="34" selection-end-line="91" selection-end-column="34" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="class-klabBaseFunctionalities_labmember.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_labmember.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
-              <caret line="111" column="14" selection-start-line="111" selection-start-column="14" selection-end-line="111" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="metaBoxUtil.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/includes/customPostTypes/metaBoxUtil.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-              <folding>
-                <marker date="1479501090701" expanded="true" signature="1860:1978" ph="..." />
-                <marker date="1479501090701" expanded="true" signature="1860:2077" ph="..." />
-                <marker date="1479501090701" expanded="true" signature="2378:2456" ph="..." />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -83,8 +61,75 @@
       <file leaf-file-name="abstract-klabCustomPostType.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/includes/customPostTypes/abstract-klabCustomPostType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="11" column="45" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
+            <state relative-caret-position="142">
+              <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="37" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PageTemplateUtil.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/includes/utils/PageTemplateUtil.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="196">
+              <caret line="49" column="48" selection-start-line="49" selection-start-column="48" selection-end-line="49" selection-end-column="48" />
+              <folding>
+                <element signature="e#7#86#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="class-klabBaseFunctionalities_labPicSlider.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_labPicSlider.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="50" column="91" selection-start-line="50" selection-start-column="91" selection-end-line="50" selection-end-column="91" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="class-klabBaseFunctionalities.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/includes/class-klabBaseFunctionalities.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="111">
+              <caret line="213" column="57" selection-start-line="213" selection-start-column="57" selection-end-line="213" selection-end-column="57" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="class-klabBaseFunctionalities_labmember.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_labmember.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-565">
+              <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="metaBoxUtil.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/includes/utils/metaBoxUtil.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="436">
+              <caret line="80" column="0" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+              <folding>
+                <element signature="e#7#87#0#PHP" expanded="true" />
+                <marker date="1479569936886" expanded="true" signature="1957:2075" ph="..." />
+                <marker date="1479569936886" expanded="true" signature="1957:2169" ph="..." />
+                <marker date="1479569936886" expanded="true" signature="2457:2535" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="class-klabBaseFunctionalities_researchTopic.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_researchTopic.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="379">
+              <caret line="35" column="0" selection-start-line="34" selection-start-column="8" selection-end-line="35" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -120,15 +165,20 @@
         <option value="$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_articles.php" />
         <option value="$PROJECT_DIR$/includes/customPostTypes/interface-klabCustomPostType" />
         <option value="$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_news.php" />
-        <option value="$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_article.php" />
         <option value="$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_CVEntry.php" />
-        <option value="$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_researchTopic.php" />
-        <option value="$PROJECT_DIR$/includes/class-klabBaseFunctionalities.php" />
+        <option value="$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_article.php" />
+        <option value="$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_labmember.php" />
+        <option value="$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_publication.php" />
+        <option value="$PROJECT_DIR$/admin/class-klabBaseFunctionalities-admin.php" />
         <option value="$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_CustomPostTypeConstructor.php" />
         <option value="$PROJECT_DIR$/includes/customPostTypes/abstract-klabCustomPostType.php" />
-        <option value="$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_metaBoxConstructor.php" />
         <option value="$PROJECT_DIR$/includes/customPostTypes/metaBoxUtil.php" />
-        <option value="$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_labmember.php" />
+        <option value="$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_metaBoxConstructor.php" />
+        <option value="$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_researchTopic.php" />
+        <option value="$PROJECT_DIR$/includes/utils/PageTemplateUtil.php" />
+        <option value="$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_labPicSlider.php" />
+        <option value="$PROJECT_DIR$/includes/class-klabBaseFunctionalities.php" />
+        <option value="$PROJECT_DIR$/includes/utils/class-klabBaseFunctionalities_metaBoxConstructor.php" />
       </list>
     </option>
   </component>
@@ -174,10 +224,77 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
-        <subPane />
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wordpressPlugin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wordpressPlugin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wordpressPlugin" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wordpressPlugin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wordpressPlugin" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="includes" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wordpressPlugin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wordpressPlugin" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="includes" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="utils" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wordpressPlugin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wordpressPlugin" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="includes" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="customPostTypes" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -188,10 +305,11 @@
     <property name="SearchEverywhereHistoryKey" value="´¨&#9;null&#9;null" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\aino\klefstromtheme\wordpressPlugin\includes\utils" />
       <recent name="C:\Users\aino\klefstromtheme\wordpressPlugin\includes\customPostTypes" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\aino\klefstromtheme\wordpressPlugin\includes\customPostTypes" />
     </key>
   </component>
@@ -261,22 +379,24 @@
       <workItem from="1478807320750" duration="13528000" />
       <workItem from="1478982999103" duration="15362000" />
       <workItem from="1479152882458" duration="15759000" />
-      <workItem from="1479490490456" duration="8754000" />
+      <workItem from="1479490490456" duration="9444000" />
+      <workItem from="1479533794225" duration="25946000" />
+      <workItem from="1480103351210" duration="16870000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88378000" />
+    <option name="totallyTimeSpent" value="131884000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24895833" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25297296" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33561644" sideWeight="0.5208333" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3344749" sideWeight="0.47916666" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33412606" sideWeight="0.47916666" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -287,7 +407,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3298611" sideWeight="0.5794844" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936978" sideWeight="0.5794844" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -331,84 +451,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_news.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/wordpress/wp-includes/post.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20400">
-          <caret line="816" column="9" selection-start-line="816" selection-start-column="9" selection-end-line="816" selection-end-column="9" />
-          <folding>
-            <marker date="1471277910000" expanded="true" signature="53025:53041" ph="Insert into post... " />
-            <marker date="1471277910000" expanded="true" signature="53051:53067" ph="Insert into page... " />
-            <marker date="1471277910000" expanded="true" signature="78775:78859" ph="SELECT post_... $" />
-            <marker date="1471277910000" expanded="true" signature="80795:80946" ph="SELECT post_... wp_posts" />
-            <marker date="1471277910000" expanded="true" signature="81116:81209" ph="SELECT COUNT... wp_posts" />
-            <marker date="1471277910000" expanded="true" signature="86937:86977" ph="SELECT * FRO... wp_posts" />
-            <marker date="1471277910000" expanded="true" signature="88384:88452" ph="SELECT * FRO... wp_posts" />
-            <marker date="1471277910000" expanded="true" signature="88777:88854" ph="SELECT ID FR... wp_posts" />
-            <marker date="1471277910000" expanded="true" signature="89306:89371" ph="SELECT comme... wp_comments" />
-            <marker date="1471277910000" expanded="true" signature="89564:89618" ph="SELECT meta_... wp_postmeta" />
-            <marker date="1471277910000" expanded="true" signature="94206:94289" ph="SELECT comme... wp_comments" />
-            <marker date="1471277910000" expanded="true" signature="96211:96294" ph="UPDATE wp_co... " />
-            <marker date="1471277910000" expanded="true" signature="116000:116041" ph="SELECT ID FR... wp_posts" />
-            <marker date="1471277910000" expanded="true" signature="127575:127651" ph="SELECT post_... wp_posts" />
-            <marker date="1471277910000" expanded="true" signature="128724:128859" ph="SELECT post_... wp_posts" />
-            <marker date="1471277910000" expanded="true" signature="129977:130072" ph="SELECT post_... wp_posts" />
-            <marker date="1471277910000" expanded="true" signature="140441:140486" ph="SELECT pinge... wp_posts" />
-            <marker date="1471277910000" expanded="true" signature="142011:142056" ph="SELECT pinge... wp_posts" />
-            <marker date="1471277910000" expanded="true" signature="142627:142673" ph="SELECT to_pi... wp_posts" />
-            <marker date="1471277910000" expanded="true" signature="144106:144158" ph="SELECT ID FR... wp_posts" />
-            <marker date="1471277910000" expanded="true" signature="146619:146759" ph="SELECT ID, p... wp_posts" />
-            <marker date="1471277910000" expanded="true" signature="148449:148547" ph="SELECT ID FR... wp_posts" />
-            <marker date="1471277910000" expanded="true" signature="148608:148685" ph="SELECT ID FR... wp_posts" />
-            <marker date="1471277910000" expanded="true" signature="160792:160850" ph="SELECT * FRO... wp_posts" />
-            <marker date="1471277910000" expanded="true" signature="164970:165010" ph="SELECT * FRO... wp_posts" />
-            <marker date="1471277910000" expanded="true" signature="166128:166193" ph="SELECT comme... wp_comments" />
-            <marker date="1471277910000" expanded="true" signature="166387:166441" ph="SELECT meta_... wp_postmeta" />
-            <marker date="1471277910000" expanded="true" signature="167012:167131" ph="SELECT meta_... wp_postmeta" />
-            <marker date="1471277910000" expanded="true" signature="189273:189418" ph="SELECT post_... " />
-            <marker date="1471277910000" expanded="true" signature="189477:189618" ph="SELECT post_... " />
-            <marker date="1471277910000" expanded="true" signature="189718:189912" ph="SELECT DATE_... " />
-            <marker date="1471277910000" expanded="true" signature="200627:200737" ph="SELECT ID FR... wp_posts" />
-            <marker date="1471277910000" expanded="true" signature="203258:203314" ph="SELECT wp_po... wp_posts" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/class-klabBaseFunctionalities.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/class-klabBaseFunctionalities-public.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1675">
-          <caret line="75" column="10" selection-start-line="75" selection-start-column="10" selection-end-line="75" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/klabBaseFunctionalities.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1200">
-          <caret line="71" column="15" selection-start-line="71" selection-start-column="15" selection-end-line="71" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/class-klabBaseFunctionalities-i18n.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="825">
-          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/includes/class-klabBaseFunctionalities-loader.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2225">
@@ -722,13 +764,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/class-klabBaseFunctionalities-activator.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Downloads/wordpress/wp-includes/post.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20275">
@@ -771,36 +806,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/class-klabBaseFunctionalities-loader.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2225">
-          <caret line="97" column="21" selection-start-line="97" selection-start-column="21" selection-end-line="97" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_CVEntry.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="28" column="35" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_news.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="725">
-          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/klabBaseFunctionalities.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="71" column="15" selection-start-line="71" selection-start-column="15" selection-end-line="71" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_CVEntry.php" />
     <entry file="file://$USER_HOME$/Downloads/wordpress/wp-includes/plugin.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="10950">
@@ -809,78 +815,164 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_researchTopic.php">
+    <entry file="file://$PROJECT_DIR$/klabBaseFunctionalities.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="28" column="35" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
+        <state relative-caret-position="-161">
+          <caret line="38" column="39" selection-start-line="38" selection-start-column="39" selection-end-line="38" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/class-klabBaseFunctionalities.php">
+    <entry file="file://$PROJECT_DIR$/public/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="128" column="26" selection-start-line="128" selection-start-column="26" selection-end-line="128" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_article.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="725">
-          <caret line="29" column="34" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/class-klabBaseFunctionalities-public.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="35" column="6" selection-start-line="35" selection-start-column="6" selection-end-line="35" selection-end-column="6" />
+        <state relative-caret-position="1900">
+          <caret line="84" column="22" selection-start-line="84" selection-start-column="22" selection-end-line="84" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/customPostTypes/abstract-klabCustomPostType.php">
+    <entry file="file://$USER_HOME$/Downloads/wordpress/wp-admin/includes/template.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="11" column="45" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
+        <state relative-caret-position="255">
+          <caret line="902" column="9" selection-start-line="902" selection-start-column="9" selection-end-line="902" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_metaBoxConstructor.php">
+    <entry file="file://$PROJECT_DIR$/includes/class-klabBaseFunctionalities-activator.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="19" column="79" selection-start-line="19" selection-start-column="79" selection-end-line="19" selection-end-column="79" />
+        <state relative-caret-position="508">
+          <caret line="31" column="31" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_publication.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="35" column="79" selection-start-line="35" selection-start-column="79" selection-end-line="35" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/class-klabBaseFunctionalities-loader.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="23" column="36" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/class-klabBaseFunctionalities-admin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2375">
+          <caret line="103" column="65" selection-start-line="103" selection-start-column="65" selection-end-line="103" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_news.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-133">
+          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_CustomPostTypeConstructor.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="39" column="72" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="72" />
+        <state relative-caret-position="2045">
+          <caret line="126" column="0" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
           <folding>
             <element signature="e#6#63#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/customPostTypes/metaBoxUtil.php">
+    <entry file="file://$PROJECT_DIR$/includes/customPostTypes/abstract-klabCustomPostType.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+        <state relative-caret-position="142">
+          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="37" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/utils/metaBoxUtil.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="80" column="0" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
           <folding>
-            <marker date="1479501090701" expanded="true" signature="1860:1978" ph="..." />
-            <marker date="1479501090701" expanded="true" signature="1860:2077" ph="..." />
-            <marker date="1479501090701" expanded="true" signature="2378:2456" ph="..." />
+            <element signature="e#7#87#0#PHP" expanded="true" />
+            <marker date="1479569936886" expanded="true" signature="1957:2075" ph="..." />
+            <marker date="1479569936886" expanded="true" signature="1957:2169" ph="..." />
+            <marker date="1479569936886" expanded="true" signature="2457:2535" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_labmember.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="111" column="14" selection-start-line="111" selection-start-column="14" selection-end-line="111" selection-end-column="14" />
+        <state relative-caret-position="-565">
+          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_labPicSlider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="50" column="91" selection-start-line="50" selection-start-column="91" selection-end-line="50" selection-end-column="91" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/class-klabBaseFunctionalities.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="213" column="57" selection-start-line="213" selection-start-column="57" selection-end-line="213" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/wordpress/wp-admin/revision.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="39" column="11" selection-start-line="39" selection-start-column="11" selection-end-line="39" selection-end-column="11" />
+          <folding>
+            <marker date="1467929792000" expanded="true" signature="3998:4005" ph="..." />
+            <marker date="1467929792000" expanded="true" signature="4030:4037" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/customPostTypes/class-klabBaseFunctionalities_researchTopic.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="35" column="0" selection-start-line="34" selection-start-column="8" selection-end-line="35" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/utils/PageTemplateUtil.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="49" column="48" selection-start-line="49" selection-start-column="48" selection-end-line="49" selection-end-column="48" />
+          <folding>
+            <element signature="e#7#86#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/utils/class-klabBaseFunctionalities_metaBoxConstructor.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="91" column="34" selection-start-line="91" selection-start-column="34" selection-end-line="91" selection-end-column="34" />
           <folding />
         </state>
       </provider>
