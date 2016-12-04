@@ -89,8 +89,8 @@ add_action( 'edit_form_after_title', 'my_run_excerpt_meta_box' );
         ];*/
         global $post;
         $currentPageTemplate = get_post_meta( $post->ID, '_wp_page_template', true );
-        if ($this ->postTypeName !== 'page'
-            || ($this->pageTemplateName != null
+        if ($this ->postTypeName === 'page'
+            && ($this->pageTemplateName != null
                 && $currentPageTemplate !== $this->pageTemplateName)) {
 
             return;
