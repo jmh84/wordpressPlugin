@@ -13,6 +13,7 @@ class KlabBaseFunctionalities_publication extends klabCustomPostType
     protected static function createPostType()
     {
         $labels = array(
+        	'show_in_rest' => true,
             'name'               => _x( 'Publications', 'post type general name', 'klab' ),
             'singular_name'      => _x( 'Publication', 'post type singular name', 'klab' ),
             'menu_name'          => _x( 'Publications', 'admin menu', 'klab' ),
@@ -37,10 +38,12 @@ class KlabBaseFunctionalities_publication extends klabCustomPostType
 
     }
 
+
     protected static function setTaxonomies() {
         return;
     }
     protected static function createMetaboxes() {
+    	 
         /*"25081398": {
             "uid": "25081398",
             "pubdate": "2014 Jul-Aug",
@@ -240,7 +243,32 @@ class KlabBaseFunctionalities_publication extends klabCustomPostType
 
         parent::createMetaBox($publicationDetailsMetaboxProps, STATIC::SLUG);
         parent::createMetaBox($abstractMetaBoxProps, STATIC::SLUG);
+        $addBoxes = 'add_meta_boxes_'.STATIC::SLUG;
+        add_action('edit_form_top', 'KlabBaseFunctionalities_publication::testi');
 
         return;
+    }
+    
+
+    public static function testi(){
+    	wp_enqueue_script( 'test', plugins_url( '/klabBaseFunctionalities-admin.js', __FILE__ ), array('jquery'), '1.0', true );
+    	/*wp_localize_script( test, 'test', array(
+    	 'root' => esc_url_raw( rest_url() ),
+    	 'nonce' => wp_create_nonce( 'wp_rest' ),
+    	 'jee' => 'jotain',
+    	 'current_user_id' => get_current_user_id(),
+    	 'url' => admin_url( 'admin-ajax.php' ))
+    	
+    	);*/
+    	$test= wp_create_nonce( 'test_nonce' );
+    	wp_localize_script( 'test', 'test', array(
+    			'current_user_id' => get_current_user_id(),
+    			'root' => esc_url_raw( rest_url() ),
+    			'nonce' => wp_create_nonce( 'test_nonce' ),
+    			'url' => admin_url( 'admin-ajax.php' )
+    	));
+    	echo '<p onclick="jee()"><input type="checkbox"     
+		name="checkbox1" onclick = "jee()" />
+    			Testii</p>';
     }
 }
