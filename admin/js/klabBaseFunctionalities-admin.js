@@ -31,79 +31,82 @@
 
 })( jQuery );
 
-function jee(){
+function fetch_publications_by_auth(){
 	var data;
 	var items = [];
 	// article URL: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=
-	var url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&retmode=json&retmax=1000&retstart=1000&term=(%22breast%20neoplasms%22[MeSH%20Terms]%20OR%20(%22breast%22[All%20Fields]%20AND%20%22neoplasms%22[All%20Fields])%20OR%20%22breast%20neoplasms%22[All%20Fields]%20OR%20(%22breast%22[All%20Fields]%20AND%20%22cancer%22[All%20Fields])%20OR%20%22breast%20cancer%22[All%20Fields])%20AND%20(Review[ptyp]%20AND%20jsubsetaim[text])"
-		data = jQuery.getJSON(url,function( data2 ) {
-			jQuery.each( data2, function( key, val ) {
-				//alert(key)
-				items.push( "<li id='" + key + "'>" + val + "</li>" );
-				//Way to get count of results: data2.esearchresult.count
-				console.log(data2.esearchresult.count);
-			})
-		})  .done(function() {
-			
-	        var data = {
-	    			'comment_status':'closed',
-	    			'ping_status':'closed',
-	    			'post_author':1,
-	    			'post_name':'testi123_name',
-	    			'post_title':'testi123_title',
-	    			'post_status':'publish',
-	    			'post_type':'klab_publication'
-	            };
+	//var url ="https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=25081398&retmode=json"
+	var url ="https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&retmode=json&id=";
+	var searchUrl="https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&retmode=json&retmax=1000&term=klefstrom+j[author]";
+	jQuery.getJSON(searchUrl,function( searchData ) {
+		idLen= searchData.esearchresult.idlist.length;
+		for (var j=0; j< idLen; j++){
+			var uid = searchData.esearchresult.idlist[j];
+			data = jQuery.getJSON(url+uid,resultToPost).done(function(dataa) {
 
-	            jQuery.ajax({
-	                method: "POST",
-	                url: test.root + 'wp/v2/klab_publication',
-	                data: data,
-	                beforeSend: function ( xhr ) {
-	                    xhr.setRequestHeader( 'X-WP-Nonce', test.nonce );
-	                },
-	                success : function( response ) {
-	                    console.log( response );
-	                    alert( 'succe' );
-	                },
-	                fail : function( response ) {
-	                    console.log( response );
-	                    alert( 'fail' );
-	                }
+			});
 
-	            });
-			
-			
-			console.log(items);
-			console.log(test.url);
-			console.log(test.nonce);
-			console.log(test.current_user_id);
-			console.log(test.root);
-			console.log(test.root + 'wp/v2/klab_publication');
+
+		}
+	});
+};
+
+function resultToPost(data2 ) {
+	for (var k=0; k < data2.result.uids.length; k++){
+		var	localUID = data2.result.uids[k];
+		var resultItem = data2.result[localUID];
+		var auths = resultItem.authors;
+		fLen = auths.length;
+		text = "";
+		for (i = 0; i < fLen; i++) {
+			if (i>0){
+				text += ', '
+			}
+			text += auths[i].name;
+		}
+
+		//var status = 'publish';
+
+		var data = {
+				title: resultItem.title,
+				klab_publication_uid: localUID,
+				klab_publication_pubdate: resultItem.pubdate,
+				klab_publication_authors: text,
+				klab_publication_source: resultItem.source,
+				klab_publication_issue: resultItem.issue,
+				klab_publication_volume: resultItem.volume,
+				klab_publication_pages: resultItem.pages,
+				klab_publication_booktitle: resultItem.booktitle,
+				klab_publication_medium: resultItem.medium,
+				klab_publication_edition: resultItem.edition,
+				klab_publication_publisherlocation: resultItem.publisherlocation,
+				klab_publication_publishername: resultItem.publishername,
+				klab_publication_fulljournalname: resultItem.fulljournalname,
+				status: 'publish',
+
+		};
+		//console.log('done' + test.nonce);
+		//console.log(test.root + 'wp/v2/klab_publication');
+		jQuery.post({
+			url: session.root + 'wp/v2/klab_publication',
+			data: data,
+			beforeSend: function ( xhr ) {
+				console.log( session.nonce );
+				xhr.setRequestHeader( 'X-WP-Nonce', session.nonce );
+			}
+
+		}).fail(function(data, error, fail){
+			console.log('ajax failed' + data + error + fail)
+		})
+		.always(function(){
+			console.log('ajax done');
+		})
+		.done(function(data){
+			//console.log(data.id);
 		});
-	//wp_insert_post(postArray());
-};
 
-function postArray(){
-	return {
-			'comment_status':'closed',
-			'ping_status':'closed',
-			'post_author':1,
-			'post_name':'testi123_name',
-			'post_title':'testi123_title',
-			'post_status':'publish',
-			'post_type':'klab_publication'
-	};
-};
+	}
 
-/*function postArray(){
-	return array(
-			'comment_status'  => 'closed',
-			'ping_status'   => 'closed',
-			'post_author'   => 1,
-			'post_name'   => 'testi123_name',
-			'post_title'    => 'testi123_title',
-			'post_status'   => 'publish',
-			'post_type'   => 'klab_publication'
-	);
-};*/
+}
+
+
