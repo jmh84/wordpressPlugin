@@ -32,24 +32,50 @@
 })( jQuery );
 
 function fetch_publications_by_auth(){
-	var data;
-	var items = [];
 	// article URL: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=
 	//var url ="https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=25081398&retmode=json"
+	var existing = new Array();
+	getCurrentEntries(1, existing);
+
+};
+
+function getCurrentEntries(page, array){
 	var url ="https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&retmode=json&id=";
 	var searchUrl="https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&retmode=json&retmax=1000&term=klefstrom+j[author]";
-	jQuery.getJSON(searchUrl,function( searchData ) {
-		idLen= searchData.esearchresult.idlist.length;
-		for (var j=0; j< idLen; j++){
-			var uid = searchData.esearchresult.idlist[j];
-			data = jQuery.getJSON(url+uid,resultToPost).done(function(dataa) {
+	jQuery.get({
+		url: session.root + 'wp/v2/klab_publication?per_page=100&page='+page,
+		beforeSend: function ( xhr ) {
+			console.log( session.nonce );
+			xhr.setRequestHeader( 'X-WP-Nonce', session.nonce );
+		}
 
-			});
-
-
+	}).fail(function(data, error, fail){
+		console.log('ajax failed' + data + error + fail)
+	})
+	.always(function(){
+		console.log('ajax done');
+	})
+	.done(function(getResult){
+		for (var i=0; i< getResult.length; i++){
+			array.push(getResult[i].klab_publication_uid);
+		}
+		if (getResult.length==0){
+		jQuery.getJSON(searchUrl,function( searchData ) {
+			idLen= searchData.esearchresult.idlist.length;
+			for (var j=0; j< idLen; j++){
+				var uid = searchData.esearchresult.idlist[j];
+				if (array.indexOf(uid)<0){
+					data = jQuery.getJSON(url+uid,resultToPost).done(function(dataa) {
+					});
+				}
+			}
+		});
+		}
+		else{
+			getCurrentEntries(page+1,array);
 		}
 	});
-};
+}
 
 function resultToPost(data2 ) {
 	for (var k=0; k < data2.result.uids.length; k++){
@@ -91,7 +117,6 @@ function resultToPost(data2 ) {
 			url: session.root + 'wp/v2/klab_publication',
 			data: data,
 			beforeSend: function ( xhr ) {
-				console.log( session.nonce );
 				xhr.setRequestHeader( 'X-WP-Nonce', session.nonce );
 			}
 

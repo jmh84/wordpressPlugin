@@ -246,29 +246,29 @@ class KlabBaseFunctionalities_publication extends klabCustomPostType
         $addBoxes = 'add_meta_boxes_'.STATIC::SLUG;
         add_action('edit_form_top', 'KlabBaseFunctionalities_publication::init_fetch_publications');
         
+        add_action( 'rest_api_init', function(){
+        	$array = array("authors", "source", "uid", "pubdate", "volume", "issue", "pages", "fulljournalname", "booktitle", "medium", "edition", "publisherlocation", "publishername");
+        	 
+        	foreach ($array as $fieldName) {
+        		register_rest_field( 'klab_publication',
+        				'klab_publication_'.$fieldName,
+        				array(
+        						'get_callback'    => function($object, $field_name ){
+        						return get_post_meta( $object[ 'id' ], $field_name, true );
+        						},
+        						'update_callback' => function($value, $object, $field_name ){
+        						return update_post_meta( $object->ID, $field_name, $value );
+        						},
+        						'schema'          => null,
+        						)
+        				);
+        	}
+        });
 
     }
     
 
     public static function init_fetch_publications(){
-    	add_action( 'rest_api_init', function(){
-    		$array = array("authors", "source", "uid", "pubdate", "volume", "issue", "pages", "fulljournalname", "booktitle", "medium", "edition", "publisherlocation", "publishername");
-    	
-    		foreach ($array as $fieldName) {
-    			register_rest_field( 'klab_publication',
-    					'klab_publication_'.$fieldName,
-    					array(
-    							'get_callback'    => function($object, $field_name ){
-    							return get_post_meta( $object[ 'id' ], $field_name, true );
-    							},
-    							'update_callback' => function($value, $object, $field_name ){
-    							return update_post_meta( $object->ID, $field_name, $value );
-    							},
-    							'schema'          => null,
-    							)
-    					);
-    		}
-    	});
     	
     	
     	
