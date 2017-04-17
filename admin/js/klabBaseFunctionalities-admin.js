@@ -41,7 +41,7 @@ function fetch_publications_by_auth(){
 
 function getCurrentEntries(page, array){
 	var url ="https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&retmode=json&id=";
-	var searchUrl="https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&retmode=json&retmax=1000&term=klefstrom+j[author]";
+	var searchUrl="https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&retmode=json&retmax=1000&term=klefstrom+j";
 	jQuery.get({
 		url: session.root + 'wp/v2/klab_publication?per_page=100&page='+page,
 		beforeSend: function ( xhr ) {
